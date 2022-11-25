@@ -1,0 +1,13 @@
+.Card {
+    width: 90%;
+    margin-top: 25px;
+    display: flex;
+    padding: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Grid-container {
+    display: -ms-inline-grid;
+
+}
