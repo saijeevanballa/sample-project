@@ -6,9 +6,10 @@ function InputRadioGroup() {
     row
     name="row-radio-buttons-group"
   >
-    <FormControlLabel value="female" control={<Radio />} label="Female" />
-    <FormControlLabel value="male" control={<Radio />} label="Male" />
-    <FormControlLabel value="other" control={<Radio />} label="Other" />
+    <FormControlLabel value="Credit Card" control={<Radio />} label="Credit Card" />
+    <FormControlLabel value="PayPal" control={<Radio />} label="PayPal" />
+    <FormControlLabel value="Cash" control={<Radio />} label="Cash" />
+    <FormControlLabel value="Bitcoin" control={<Radio />} label="BitCoin" />
    
   </RadioGroup>
   )
