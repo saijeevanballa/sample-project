@@ -17,7 +17,7 @@ const autoTags = [
 ]
 
 
-function AddCustomer() {
+function AddCustomer({ setReservations, setForm, reservations }) {
 
     const formik = useFormik({
         initialValues: {
@@ -52,8 +52,9 @@ function AddCustomer() {
             phNum: yup.number(),
 
         }),
-        onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
+        onSubmit: value => {
+            setReservations([...reservations, { ...value, firstName: value.fName }])
+            setForm(false)
         },
     });
 
@@ -70,7 +71,7 @@ function AddCustomer() {
     });
 
     const defaultButtonProps = () => ({
-        disabled: formik.isSubmitting || !formik.isValid || !formik.dirty,
+        // disabled: formik.isSubmitting || !formik.isValid || !formik.dirty,
         onClick: formik.handleSubmit,
         type: "submit",
     });

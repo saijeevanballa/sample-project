@@ -1,25 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import AddIcon from '@mui/icons-material/Add';
-import reservations from '../reservations.json';
 import './Search.css'
 
-function Search() {
-    let resv = reservations
+function Search(props) {
+    let [Search, setSearch] = useState('')
     return (
-        <div>
+        <div style={{
+            margin: '20px'
+        }}>
 
-            <TextField className="Search-Bar" id="outlined-basic" label="First Name" variant="outlined" />
+            <TextField value={Search} onChange={(e) => setSearch(e.target.value)} className="Search-Bar" id="outlined-basic" label="First Name" variant="outlined" />
             <Button variant="outlined" size="medium">
                 Search
             </Button>
 
-            <Button variant="outlined" startIcon={<AddIcon />} style={{ marginLeft: "25px" }} >
-                ADD CUSTOMER
-            </Button>
-
-            {resv.map((user,index) => <h3 key={index}>{user.firstName}</h3>)}
+            {props.reservations.filter((user) => Search.length ? user.firstName.includes(Search) : user).map((user, index) => <h3 key={index}>{user.firstName}</h3>)}
 
         </div>
 
