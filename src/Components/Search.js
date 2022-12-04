@@ -19,7 +19,7 @@ function Search() {
                 ADD CUSTOMER
             </Button>
 
-            {resv.map(user => <h3>{user.firstName}</h3>)}
+            {resv.map((user,index) => <h3 key={index}>{user.firstName}</h3>)}
 
         </div>
 

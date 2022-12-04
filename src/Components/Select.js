@@ -1,7 +1,7 @@
-import { Box, TextField, MenuItem,FormHelperText } from '@mui/material'
+import { Box, TextField, MenuItem, FormHelperText } from '@mui/material'
 import React, { useState } from 'react'
 
-function Select() {
+function Select(props) {
     const [country, setCountry] = useState('')
     const handleChange = (event) => {
         setCountry(event.target.value)
@@ -10,14 +10,12 @@ function Select() {
     return (
         <Box width="250px" >
             <TextField
-                label='Room Size'
+                label={props.name}
                 select
                 value={country}
                 onChange={handleChange}
                 fullWidth >
-                <MenuItem value='SM'>Small</MenuItem>
-                <MenuItem value='MD'>Medium</MenuItem>
-                <MenuItem value='LR'>Large</MenuItem>
+                {props.values.map((valuex,index) => <MenuItem key={index}  value={valuex}>{valuex}</MenuItem>)}
             </TextField>
             <FormHelperText>Choose a Room Type</FormHelperText>
         </Box >
