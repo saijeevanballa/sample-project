@@ -9,7 +9,7 @@ function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <div className="App">
-        <AddCustomer></AddCustomer>
+        <AddCustomer />
       </div>
     </LocalizationProvider>
   );
