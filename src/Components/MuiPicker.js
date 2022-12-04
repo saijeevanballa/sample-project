@@ -1,22 +1,18 @@
-import { useState } from 'react'
+import React from "react"
 import { Stack, TextField } from '@mui/material'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 
 
 function MuiPicker(props) {
-    const [selectedDate, setSelectedDate] = useState('')
-
-
     return (
         <Stack spacing={4} sx={{ width: '250px', marginRight: '25px' }}>
             <DatePicker
                 label={props.propName}
-                renderInput={(params) => <TextField {...params} />}
-                value={selectedDate}
-                onChange={(newValue) => {
-                    setSelectedDate(newValue)
-                }} >
+                renderInput={(params) => <TextField {...params} error={false} />}
+                name={props.name}
+                value={props.value}
+                onChange={(date) => props.onChange(props.name, date)} >
             </DatePicker>
         </Stack>
     )
